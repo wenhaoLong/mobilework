@@ -78,6 +78,8 @@ Page({
   //页面显示，如果是测试到中途退出，继续播放
   onShow: function () {
    
+    innerAudioContext.volume = 1;
+    innerAudioContext.seek(0.04);
     let {
       isStart
     } = this.data;
@@ -85,8 +87,7 @@ Page({
      
       
       innerAudioContext.play();
-      innerAudioContext.playbackRate = 0.5;
-      innerAudioContext.volume = 0;
+      
     }
 
   },
@@ -156,11 +157,13 @@ Page({
     }
     let text = `${chosen + 1}、${scale.questions[chosen].question}, ` + choicesText;
     innerAudioContext.onPlay(function(){
+  
       innerAudioContext.onTimeUpdate(function(){
         var currentTime = innerAudioContext.currentTime  * 1000
+     
         that.setData({ 
           msg: innerAudioContext.duration,
-          msg2: innerAudioContext.currentTime  * 3000
+          msg2: innerAudioContext.currentTime  * 1000
         });
 
       })
@@ -180,6 +183,7 @@ Page({
       success: (res) => {
         console.log("succ tts", res.filename)
         innerAudioContext.src = res.filename;
+     
         innerAudioContext.play();
         
       },
@@ -202,10 +206,11 @@ Page({
       isTouchEnd: false,
       showPg: true,
     })
-    var a = 10, o = 10;
+
+    var a = 4, o = 10;
     this.timer = setInterval(function () {
       n.setData({
-        value: n.data.value - 100 / 1000
+        value: n.data.value - 100 / 400
       }), (o += 10) >= 1e3 && o % 1e3 == 0 && (a-- , 
       console.log(a), 
 

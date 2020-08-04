@@ -51,7 +51,7 @@
 		</view>
 	</view>
 	<view class="model-footer recording-footer">
-		<text>录音持续10秒</text>
+		<text>录音持续5秒</text>
 	</view>
 
 </view>
