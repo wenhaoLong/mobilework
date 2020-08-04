@@ -1,0 +1,55 @@
+<!--pages/my/my.wxml  个人中心页面-->
+<view class="cover">
+	<view class="userinfo">
+		<!-- <button wx:if="{{!userInfo.avatarUrl}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">小程序一键登录</button> -->
+		<button wx:if="{{!userData}}" type="primary" catchtap="showModal" hover-class="primary-button-hover">一键登录</button>
+
+		<block wx:else>
+			<image src="{{userInfo.avatarUrl}}" class="userinfo-avatar" mode="widthFix"></image>
+			<text class="userinfo-nickname"> {{userData.name}}</text>
+			<button type="warn" bindtap="logOut">退出登录</button>
+
+		</block>
+
+		<!-- <button wx:if="{{ !userData }}" type="primary" hover-class="primary-button-hover" bindtap="goToSignIn">去登录</button> -->
+	</view>
+	<view class="mylist">
+		<navigator class="list-item" url="../history/history" hover-class="list-item-hover">
+			<text class="iconfont iconbiaoge"></text>
+			<view class="">
+				<text>我的测评报告</text>
+				<text class="iconfont iconright-arrow"></text>
+			</view>
+		</navigator>
+		<navigator class="list-item" url="../setting/setting" hover-class="list-item-hover">
+			<text class="iconfont iconsetting"></text>
+			<view class="">
+				<text>设置</text>
+				<text class="iconfont iconright-arrow"></text>
+			</view>
+		</navigator>
+	</view>
+	<globalfooter></globalfooter>
+</view>
+
+<view class="model-mask" wx:if="{{ showModal}}">
+	<view class="model-box">
+		<view class="model-header">登陆选择</view>
+		<view class="model-body">
+			<view class="model-text">
+				您可以选择小程序登录或者使用账号密码登录，登陆后我们才能提供保存您的测评信息。
+			</view>
+			<view class="model-text">
+				注意：两种登录方式数据不互通。
+			</view>
+		</view>
+		<view class="model-footer">
+			<view class="model-footer-buttons">
+				<button class="model-button-confirm" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信一键登录</button>
+				<view class="model-button-confirm" catchtap="goToSignIn">账号密码登录</view>
+				<view class="model-button-cancel" bindtap="hideModal">取消</view>
+			</view>
+		</view>
+
+	</view>
+</view>

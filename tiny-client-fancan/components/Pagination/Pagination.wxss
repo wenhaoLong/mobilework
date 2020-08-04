@@ -1,0 +1,122 @@
+/* components/Pagination/Pagination.wxss */
+@import '/resources/iconfont.wxss';
+
+.iconfont{
+  font-size: inherit;
+}
+
+
+
+.pagination{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.small {
+  font-size: 20rpx;
+}
+.total {
+  margin-bottom: 20rpx;
+
+  color: #858585;
+}
+
+.button-box {
+  margin-bottom: 20rpx;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.button-box .btn-default{
+  display: inline-block;
+  margin-right: 20rpx;
+  border: 1rpx solid #858585;
+  font-size: 32rpx;
+  min-height: 70rpx;
+  min-width: 70rpx;
+  line-height: 70rpx;
+  
+}
+
+.button-box  .btn-small{
+  border: 1rpx solid #858585;
+  margin-right: 16rpx;
+  font-size: 20rpx;
+  min-height: 50rpx;
+  min-width: 50rpx;
+  line-height: 50rpx;
+  padding-left: 10rpx;
+  padding-right:10rpx;
+}
+
+.button-box .btn-default::after,
+.button-box .btn-small::after,
+.jumper .btn::after {
+  border: none;
+}
+
+.button-box .button-hover-class,
+.button-box .current-page {
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.jumper-box{
+  margin-bottom: 20rpx;
+}
+
+.jumper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+.jumper-small{
+  font-size: 20rpx;
+}
+.jumper .inp{
+  text-align: center;
+  margin:0 10rpx;
+  border: 2rpx solid #858585;
+  border-radius: 8rpx;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.jumper-small .inp{
+  width:50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.jumper .btn {
+  font-size: inherit;
+  background-color: #1890ff;
+  color: #fff;
+  display: inline-block;
+  margin-left: 10rpx;
+  border: 1rpx solid #1890ff;
+  min-height: 70rpx;
+  min-width: 70rpx;
+  line-height: 70rpx;
+  padding-left: 10rpx;
+  padding-right:10rpx;
+}
+
+.jumper-small .btn {
+  min-height: 50rpx;
+  min-width: 50rpx;
+  line-height: 50rpx;
+}
+
+.primary-button-hover{
+  background-color: #3498db !important;
+  color: #f2f1ef !important;
+}

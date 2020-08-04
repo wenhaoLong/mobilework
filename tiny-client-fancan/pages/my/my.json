@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "globalfooter": "../../components/globalfooter/globalfooter"
+  },
+  "navigationBarTitleText": "个人中心",
+  "enablePullDownRefresh": true
+}

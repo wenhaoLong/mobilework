@@ -1,0 +1,35 @@
+<!--pages/register/register.wxml 注册页面-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="page">
+	<view class="page__hd">注册</view>
+	<view class="page__bd">
+		<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+			<mp-cells title="" footer="注册说明同意本公司的使用条款">
+				<mp-cell prop="mobile" title="手机号" ext-class="">
+					<input bindinput="formInputChange"  type="number"  data-field="mobile" class="weui-input" placeholder="请输入手机号" disabled="{{ !canInputmobile }}"/>
+				</mp-cell>
+				<mp-cell title="图形验证码" ext-class=" weui-cell_vcode">
+					<input bindinput="formInputChange" data-field="captcha" class="weui-input" placeholder="请输入图形验证码" />
+					<button wx:if="{{ !vcodeImg}}" slot="footer" class="weui-vcode-btn" bindtap="getCaptcha" >获取图形验证码</button>
+					<image wx:else slot="footer"  class="weui-vcode-img" src="data:image/jpg;base64,{{  vcodeImg }}" style="width: 108px" bindtap="changeCaptcha"></image>
+				</mp-cell>
+				<mp-cell prop="verifyCode" title="短信验证码" ext-class=" weui-cell_vcode">
+					<input bindinput="formInputChange"   data-field="verifyCode" class="weui-input" placeholder="请输入短信验证码"/>
+					<button slot="footer" class="weui-vcode-btn" bindtap="getVerifyCode" disabled="{{ !vcodeImg || waitMessage }}">{{waitMessage? timeOut+'s' :'获取短信验证码'}}</button>
+				</mp-cell> 
+				<mp-cell prop="password" title="密码" ext-class="">
+					<input bindinput="formInputChange" password data-field="password" class="weui-input" placeholder="请输入密码" />
+				</mp-cell>
+				<mp-cell prop="verifyPassword" title="再次输入密码" ext-class="">
+					<input bindinput="formInputChange" password data-field="verifyPassword" class="weui-input" placeholder="请再次输入密码" />
+				</mp-cell>
+			</mp-cells>
+		</mp-form>
+		<view class="weui-btn-area">
+			<button class="weui-btn" bindtap="submitForm">确定</button>
+		</view>
+	</view>
+</view>
+
+<navigator url="../signin/signin" open-type="navigateBack" hover-class="none" hover-stay-time="0">使用已有账户登录</navigator>
+<globalfooter></globalfooter>

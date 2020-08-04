@@ -1,0 +1,47 @@
+<!--pages/test/test.wxml  测试列表???-->
+<view class="cates">
+	<!-- 左侧菜单 -->
+	<view class="left-menu">
+		<view wx:for="{{leftMenu}}" data-index="{{index}}" wx:key="id" bindtap="selectMenu" class="left-menu-item {{index===selectedMenu? 'left-menu-item-selected' : ''}}">
+			<text>{{item.name}}</text>
+		</view>
+	</view>
+	<!-- 右侧内容栏目 -->
+	<view class="right-content">
+		<!-- <view class="search">
+        <input placeholder="请输入关键词进行搜索" type="text" confirm-type="search">
+         <icon type="search"></icon>
+        </input>
+      </view> -->
+		<view class="right-content-item" wx:for="{{rightContent[selectedMenu]}}" wx:key="id" data-id="{{item.id}}" bindtap="goToScale">
+			<view class="item-info">
+				<text>{{item.name}}</text>
+				<text>{{item.description}}</text>
+			</view>
+			<image src="/resources/image/populartest_1.jpg"></image>
+		</view>
+		<view class="footer-box">
+		<globalfooter></globalfooter>
+		</view>
+	</view>
+
+
+</view>
+
+<view class="model-mask" wx:if="{{ showModel}}">
+	<view class="model-box">
+		<view class="model-header">提示</view>
+		<view class="model-body">
+			<view class="model-text">
+				检测到您还有未完成的测试，请问您是否继续上次测评？
+			</view>
+		</view>
+		<view class="model-footer">
+			<view class="model-footer-buttons">
+				<view class="model-button-cancel" bindtap="deleteReport">否-终止</view>
+				<view class="model-button-confirm" bindtap="continueReport">是-继续</view>
+			</view>
+		</view>
+
+	</view>
+</view>

@@ -1,0 +1,75 @@
+<!--pages/scale/scale.wxml-->
+<view class="cover">
+	<view class="entry" wx:if="{{!isStart}}">
+		<text class="scalename">{{scaleDetail.name}}</text>
+		<text >{{scaleDetail.description}}</text>
+		<text>题目总数：{{scaleDetail.questionNumber}}</text>
+		<button type="primary" bindtap="showModal" hover-class="primary-button-hover">开始测评</button>
+		<text>测评前需完成支付</text>
+	</view>
+	<form wx:else class="scale-container" bindsubmit="postAnswer">
+		<view class="question-box">
+			<text class="question">{{chosen + 1}}、{{scale.questions[chosen].question}}</text>
+			<radio-group  name="radio">
+				<radio wx:for="{{scale.questions[chosen].choices}}" wx:key="id" value="{{item.id}}" color="#1890ff" checked="{{item.id ===voiceResult }}">{{index+1 + '、' + item.text}}</radio>
+			</radio-group>
+		</view>
+		<view class="button-box">
+			<text>{{chosen + 1}}</text>
+			<text>/{{questionLength}}</text>
+			<button type="primary" form-type="submit" hover-class="primary-button-hover">{{chosen==questionLength - 1? '完成测试':'下一题'}}</button>
+			<!-- 录音按钮 -->
+			<view class="record_button">
+			
+				<view class="dot {{isTouchStart==true?'dot-blowup':''}} {{isTouchEnd==true?'dot-zoomout':''}}" style="display:{{isDot}}"></view>
+				<view class="record" bindtouchstart="recordStart" bindtouchend="recordTerm">
+					<image mode="widthFix" src="../../resources/image/record.png"></image>
+				</view>
+			
+			</view>
+			<progress strokeWidth="4" percent="{{value}}" wx:if="{{showPg}}" ></progress>
+			<!-- <button bindtap="readTitle" type="primary">朗读题目</button> -->
+		</view>
+	</form>
+	<globalfooter></globalfooter>
+
+</view>
+<view class="model-box recording-box" hidden="{{ !isRecording}}">
+	<view class="model-header recording-header">
+		<text>正在录音中...</text>
+	</view>
+	<view class="model-body recording-body">
+		<view class="recording">
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+		</view>
+	</view>
+	<view class="model-footer recording-footer">
+		<text>录音持续10秒</text>
+	</view>
+
+</view>
+
+<view class="model-mask" wx:if="{{showModal}}" catchtap="hideModal">
+	<view class="model-box" catchtap="uselessFun">
+		<view class="model-header">选择</view>
+		<view class="model-body">
+			<view class="model-text">
+				请您选择测试方式
+			</view>
+		</view>
+		<view class="model-footer">
+			<view class="model-footer-buttons">
+				<view class="model-button-confirm" catchtap="testInManual">手选答案</view>
+				<view class="model-button-confirm" catchtap="testInAuto">听读并语音回复</view>
+			</view>
+		</view>
+
+	</view>
+</view>

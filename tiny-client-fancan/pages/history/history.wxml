@@ -1,0 +1,63 @@
+<!--pages/history/history.wxml-->
+<view class="cover">
+	<text class="cue">左划显示剩余内容</text>
+	<scroll-view scroll-x>
+		<view class="table">
+			<view class="table-thead">
+				<view class="table-row table-row-odd">
+					<view class="table-cell">报告ID</view>
+					<view class="table-cell">测评时间</view>
+					<view class="table-cell">参考判断</view>
+					<view class="table-cell">操作</view>
+				</view>
+			</view>
+			<view class="table-tbody">
+				<view class="table-row {{index%2 === 0? 'table-row-even' : 'table-row-odd'}}" wx:for="{{reportsList}}" wx:key="id">
+					<view class="table-cell">{{item.id}}</view>
+					<view class="table-cell">{{item.finishedAt}}</view>
+					<view class="table-cell">{{item.conclusion}}</view>
+					<view class="table-cell" data-show="{{item.id}}" bindtap="goToReport">查看</view>
+				</view>
+			</view>
+
+		</view>
+	</scroll-view>
+
+	<view class="control-box">
+		<text>共有{{pagination}}条记录</text>
+		<view class="page-box">
+			<button disabled="{{ page === 1 }}" hover-class="button-hover-class" bindtap="toPreviousPage">
+				<text class="iconfont iconleft-arrow" ></text>
+			</button>
+			<button wx:if="{{ page - 1 >= 1 }}" hover-class="button-hover-class" bindtap="toPreviousPage">
+				<text>{{ page - 1 }}</text>
+			</button>
+			<button class="current-page" hover-class="button-hover-class">
+				<text >{{page}}</text>
+			</button>
+			<button wx:if="{{ page + 1 <= pagesAcount}}" hover-class="button-hover-class" bindtap="toNextPage">
+				<text >{{ page + 1 }}</text>
+			</button>
+			<!-- <button wx:if="{{ page + 2 <=pagesAcount}}" disabled="{{page + 2 !== pagesAcount}}" hover-class="button-hover-class"> 
+        <text >{{page + 2 === pagesAcount ? page + 2 : '...'}}</text>
+      </button>
+      <button wx:if="{{ page + 3 <= pagesAcount }}" hover-class="button-hover-class"> 
+        <text>{{pagesAcount}}</text>
+      </button> -->
+			<button disabled="{{page === pagesAcount}}" hover-class="button-hover-class" bindtap="toNextPage">
+				<text class="iconfont iconright-arrow" ></text>
+			</button>
+		</view>
+		<form bindsubmit="toInputPage" class="form-box">
+			<view>
+				<text>请输入要跳转的页面</text>
+				<input type="number" placeholder="请输入" name="page" value="{{inputValue}}"></input>
+				<button type="primary" form-type="submit">提交</button>
+			</view>
+		</form>
+	</view>
+
+	<globalfooter></globalfooter>
+
+
+</view>

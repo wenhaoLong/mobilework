@@ -1,0 +1,48 @@
+<!--pages/forget/forget.wxml-->
+<view class="container">
+
+	<!-- <view class=""></view> -->
+	<text class="title">忘记密码</text>
+	<view class="form">
+		<view class="form-row">
+			<view class="form-cell">
+				<input placeholder="手机号" type="number" bindinput="inputMobile" disabled="{{isGetCaptcha}}"></input>
+			</view>
+		</view>
+		<view class="form-row">
+			<view class="form-cell">
+				<input placeholder="图形验证码" bindinput="inputCaptcha"></input>
+			</view>
+			<view class="form-cell">
+				<button wx:if="{{ !isGetCaptcha }}" type="primary" hover-class="primary-button-hover" catchtap="getCaptcha">获取图形验证码</button>
+				<image wx:else mode="widthFix" src="data:image/jpg;base64,{{captchaUrl}}" catchtap="changeCaptcha"></image>
+			</view>
+		</view>
+		<view class="form-row">
+			<view class="form-cell">
+				<input placeholder="短信验证码" bindinput="inputVerifyCode"></input>
+			</view>
+			<view class="form-cell">
+				<button hover-class="primary-button-hover" disabled="{{ isGetVerifyCode }}" catchtap="getVerifyCode">{{ isGetVerifyCode ? timer+'秒' : '获取短信验证码'}}</button>
+			</view>
+
+		</view>
+		<view class="form-row">
+			<view class="form-cell">
+				<input placeholder="新密码应在6-20位之间" bindinput="inputPassword" password="true"></input>
+			</view>
+		</view>
+		<view class="form-row">
+			<view class="form-cell">
+				<input placeholder="再次输入新密码" bindinput="inputSecondPassword" password="true"></input>
+			</view>
+		</view>
+		<view class="form-cell">
+			<button type="primary" bindtap="submitInfo" hover-class="primary-button-hover">提交</button>
+		</view>
+
+
+	</view>
+	<globalfooter></globalfooter>
+
+</view>

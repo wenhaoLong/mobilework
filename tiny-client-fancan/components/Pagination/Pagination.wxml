@@ -1,0 +1,37 @@
+<!--components/Pagination/Pagination.wxml-->
+
+
+
+<view class="pagination {{size=='small'? 'small' : ''}}">
+	
+	<view class="button-box">
+		<button class="{{size=='small'? 'btn-small' : 'btn-default'}}"  disabled="{{ current === 1 }}" hover-class="button-hover-class" bindtap="toPreviousPage">
+			<text class="iconfont iconleft-arrow" ></text>
+		</button>
+		<button class="{{size=='small'? 'btn-small' : 'btn-default'}}"  wx:if="{{ current - 1 >= 1 }}" hover-class="button-hover-class" bindtap="toPreviousPage">
+			<text>{{ current - 1 }}</text>
+		</button>
+		<button class="current-page {{size=='small'? 'btn-small' : 'btn-default'}}"  hover-class="button-hover-class">
+			<text >{{current}}</text>
+		</button>
+		<button class="{{size=='small'? 'btn-small' : 'btn-default'}}"  wx:if="{{ current + 1 <= pagesAccount}}" hover-class="button-hover-class" bindtap="toNextPage">
+			<text >{{ current + 1 }}</text>
+		</button>
+		<button class="{{size=='small'? 'btn-small' : 'btn-default'}}"  disabled="{{current == pagesAccount}}" hover-class="button-hover-class" bindtap="toNextPage">
+			<text class="iconfont iconright-arrow" ></text>
+		</button>
+	</view>
+	<view class="total">
+		<text>{{totalContent}}</text>
+	</view>
+	<form class="jumper-box" bindsubmit="inputPage">
+		<view class="jumper {{size=='small'? 'jumper-small' : ''}}">
+			<text>跳至</text>
+			<input class="inp" type="number"  name="page" confirm-type="search"></input>
+			<text>页</text>
+			<button class="btn" form-type="submit" hover-class="primary-button-hover">跳转</button>
+		</view>
+	</form>
+
+
+</view>

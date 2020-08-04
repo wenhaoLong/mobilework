@@ -1,0 +1,91 @@
+/* pages/history/history.wxss */
+.cover {
+  padding: 0rpx 30rpx;
+}
+.cue{
+  display: block;
+  color: #bfbfbf;
+  padding:10rpx;
+  font-size: small;
+}
+.table {
+  border-top: 2rpx solid #e8e8e8;
+  border-left: 2rpx solid #d8d8d8;
+  white-space: nowrap;
+  text-align: center;
+  font-size: small;
+}
+.table-row-even {
+  background-color: #f5f9f9;
+}
+.table-row-odd {
+  background-color: #fafafa;
+}
+.table-cell {
+  padding: 20rpx;
+  border-right: 2rpx solid #e8e8e8;
+  border-bottom: 2rpx solid #e8e8e8;
+}
+.table-tbody .table-row .table-cell:last-child {
+  color: #1890ff;
+}
+.control-box {
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.control-box > text {
+  padding:16rpx 0;
+  margin-right: 10rpx;
+}
+.page-box > button{
+  display: inline-block;
+  margin-right: 20rpx;
+  margin-left: 0;
+  padding: 0;
+  width: auto;
+  min-width: 70rpx;
+  min-height: 70rpx;
+  border-radius: 16rpx;
+  border: 1rpx solid #e8e8e8;
+  background-color: white;
+  line-height: 70rpx;
+  font-size: medium;
+}
+.page-box button::after {
+  border: none;
+}
+.page-box .button-hover-class,
+.page-box .current-page {
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.form-box{
+  width: 100%;
+}
+
+.form-box view{
+  width: 100%;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.form-box input{
+  border: 2rpx solid #eee;
+  border-radius: 8rpx;
+  width: 140rpx;
+  height: 70rpx;
+}
+.form-box button{
+  height: 70rpx;
+  background-color: #1890ff;
+  margin:0;
+  line-height: 70rpx;
+  
+}

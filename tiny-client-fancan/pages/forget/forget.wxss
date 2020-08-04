@@ -1,0 +1,22 @@
+/* pages/forget/forget.wxss */
+.container{
+  padding: 100rpx 0;
+}
+button{
+  background-color: #1890ff;
+  color: #fff;
+}
+.title{
+  display: block;
+  padding: 0 30rpx 30rpx 30rpx;
+  font-size: large;
+  color: #1890ff;
+  border-bottom: 4rpx solid #1890ff;
+}
+.form{
+  width: 75%;
+}
+input[disabled]{
+  background-color: #e8e8e8;
+
+}

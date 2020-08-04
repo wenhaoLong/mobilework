@@ -1,0 +1,69 @@
+<!--pages/report/report.wxml -->
+<!-- 报告界面 -->
+<view class="cover">
+	<view class="content-box">
+		<text class="title">基本信息</text>
+		<text>姓名：{{profile.name}}</text>
+		<text>性别：{{profile.gender === 0? '男' : '女'}}</text>
+		<text>出生日期：{{profile.birthday}}</text>
+	</view>
+	<view class="content-box">
+		<text class="title">量表测评结果：{{scales.conclusion}}</text>
+		<text>测评得分：{{ scales.score}}</text>
+		<text>参考标准：{{ scales.standard.min}}—{{ scales.standard.max }}</text>
+		<text>参考诊断：{{ scales.result}}</text>
+		<text>开始时间：{{ scales.createdAt}}</text>
+		<text>测评耗时：{{ scales.timeConsumption}}</text>
+	</view>
+	<text class="cue">左划显示剩余内容</text>
+	<scroll-view scroll-x="true">
+		<view class="table">
+			<view class="table-thead">
+				<view class="table-row">
+					<view class="table-cell"></view>
+					<view class="table-cell">测试题目</view>
+					<view class="table-cell">选择结果</view>
+					<view class="table-cell">耗时</view>
+				</view>
+			</view>
+			<view class="table-tbody">
+				<view class="table-row" wx:for="{{reportScales}}" wx:key="id">
+					<view class="table-cell">{{index+1}}</view>
+					<view class="table-cell">{{ item.questionText }}</view>
+					<view class="table-cell">{{item.choiceText}}</view>
+					<view class="table-cell">{{item.duration}}秒</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+
+
+	<view class="content-box">
+		<text class="title">{{scales.name}}结果分析</text>
+		<text>{{scales.resultAnalysis}}</text>
+	</view>
+	<view class="content-box">
+		<text class="title">{{scales.name}}评分标准</text>
+		<text>{{scales.standardText}}</text>
+	</view>
+	<view class="content-box">
+		<text class="title">生理指标分析</text>
+		<text>暂无数据</text>
+	</view>
+	<view class="content-box">
+		<text class="title">综合分析</text>
+		<text>根据语音、图像、量表得出的综合结果（免费版暂未提供）</text>
+	</view>
+	<view class="content-box">
+		<text>本报告仅供参考</text>
+	</view>
+
+	<view class="content-box">
+		<text class="navigate" catchtap="clipBoardData">免费咨询</text>
+	</view>
+	<view class="footer-box">
+		<globalfooter></globalfooter>
+
+	</view>
+
+</view>

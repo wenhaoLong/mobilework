@@ -1,0 +1,20 @@
+/* components/globalfooter/globalfooter.wxss */
+.global-footer{
+  position: absolute;
+  bottom: 10rpx;
+  left: 0;
+  padding: 20rpx 0;
+  width: 100%;
+  font-size: small;
+  
+}
+.global-footer-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+.global-footer-navigator{
+  padding-left: 10rpx;
+  color: #1890ff;
+}

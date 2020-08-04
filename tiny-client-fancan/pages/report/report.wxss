@@ -1,0 +1,55 @@
+/* pages/report/report.wxss */
+.cover{
+  padding:0rpx 20rpx;
+}
+.title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.content-box text {
+  margin-top: 30rpx;
+}
+.cue{
+  display: block;
+  color: #bfbfbf;
+  padding:10rpx;
+  padding-bottom: 0;
+  font-size: small;
+  /* border-bottom: 1rpx solid #e8e8e8; */
+}
+scroll-view{
+  height: auto;
+}
+.table {
+  width: 800rpx;
+  font-size: small;
+}
+.table-cell {
+  vertical-align: middle;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.table-row .table-cell:nth-child(2){
+  width: 60%;
+}
+.table-row .table-cell:nth-child(3){
+  width: 18%;
+}
+.table-row .table-cell:last-child{
+  width: 20%;
+}
+.navigate{
+  color: #1890ff;
+}
+.footer-box{
+  position: relative;
+  height: 100rpx;
+}
+

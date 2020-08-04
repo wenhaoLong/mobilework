@@ -1,0 +1,47 @@
+/* components/Table/Table.wxss */
+.table {
+  display: table;
+  /* width: max-content; */
+  min-width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  font-size: small;
+  border-top: 2rpx solid #e8e8e8;
+  border-left: 2rpx solid #d8d8d8;
+}
+
+.table-thead {
+  display: table-header-group;
+
+}
+
+.table-tbody {
+  display: table-row-group;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  padding: 20rpx;
+  border-right: 2rpx solid #e8e8e8;
+  border-bottom: 2rpx solid #e8e8e8;
+}
+.table-cell .cell-item {
+  overflow: hidden;
+}
+
+.table-row-even {
+  background-color: #f5f9f9;
+}
+
+.table-row-odd {
+  background-color: #fafafa;
+}
+
+
+.action-cell {
+  color: #1890ff;
+}

@@ -1,0 +1,138 @@
+<!--pages/setting/setting.wxml-->
+<view class="cover">
+	<view class="header">
+		<view class="{{menuIndex === 0? 'selected' : ''}}" data-index="0" catchtap="toSelectMenu">基本设置</view>
+		<block wx:if="{{ logInWay === 1 }}">
+			<view class="{{menuIndex === 1? 'selected' : ''}}" data-index="1" catchtap="toSelectMenu">安全设置</view>
+		</block>
+	</view>
+	<view class="body">
+		<view wx:if="{{menuIndex !== 1}}">
+			<text  class="title">基本设置</text>
+			<view>
+				<view class="content-item">
+					<text>姓名</text>
+					<input value="{{formData.name}}" disabled="{{!canIChange}}" bindinput="inputName"></input>
+				</view>
+				<view class="content-item">
+					<text>性别</text>
+					<!-- <input value="{{userInfo.gender}}"></input> -->
+					<picker range="{{ genderContent}}" value="{{index}}" bindchange="pickerGender" disabled="{{!canIChange}}">
+						<view>{{ genderContent[formData.gender]}}</view>
+					</picker>
+				</view>
+				<view class="content-item">
+					<text>出生日期</text>
+					<!-- <input value="{{userInfo.birthday}}"></input> -->
+					<picker mode="date" value="{{formData.birthday}}" bindchange="pickerDate" start="1900-01-01" end="{{today}}" disabled="{{!canIChange}}">
+						<view>{{formData.birthday}}</view>
+					</picker>
+				</view>
+			</view>
+			<view wx:if="{{ !canIChange}}" class="button-box">
+				<button type="primary" size="mini" bindtap="canUpdateInfo" hover-class="primary-button-hover">更新基本信息</button>
+			</view>
+			<view wx:else class="button-box">
+				<button type="primary" size="mini" bindtap="submitForm" hover-class="primary-button-hover">提交</button>
+				<button size="mini" bindtap="redoRenderInfo">取消</button>
+
+			</view>
+		</view>
+		<view wx:else>
+			<text  class="title">安全设置</text>
+			<view class="safety">
+				<view class="safety-list">
+					<view class="safety-list-item">
+						<text>账户密码</text>
+					</view>
+					<view bindtap="resetPassword">修改</view>
+				</view>
+				<view class="safety-list">
+					<view class="safety-list-item">
+						<text>密保手机</text>
+						<text>绑定手机号: {{mobile}}</text>
+					</view>
+					<view bindtap="resetMobile">修改</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+	<globalfooter></globalfooter>
+
+</view>
+
+<view class="model-mask" wx:if="{{ showModel }}">
+	<view class="model-box" wx:if="{{modelItem === 0}}">
+		<text class="model-header">重置密码</text>
+		<view class="model-body">
+			<form bindsubmit="submitpassword">
+				<view class="form">
+					<view class="form-row">
+						<input placeholder="旧密码" password name="oldPassword" maxlength="20"></input>
+					</view>
+					<view class="form-row">
+						<input placeholder="新密码" password name="newPassword" maxlength="20"></input>
+					</view>
+					<view class="form-row">
+						<input placeholder="再次输入新密码" password name="secondPassword" maxlength="20"></input>
+					</view>
+				</view>
+				<view class="form-buttons">
+					<button size="mini" form-type="submit" type="primary" hover-class="primary-button-hover">确定</button>
+					<button size="mini" bindtap="hideModel" hover-class="primary-button-hover">取消</button>
+				</view>
+			</form>
+		</view>
+	</view>
+	<view wx:else class="model-box">
+		<text class="model-header">修改手机号</text>
+		<view class="model-body">
+			<form bindsubmit="submitMobile" wx:if="{{ changeMobileStep ===1 }}">
+				<view class="form">
+					<view class="form-row">
+						<input placeholder="旧手机号" maxlength="11" name="mobile" type="number"></input>
+					</view>
+				</view>
+				<view class="form-buttons">
+					<button size="mini" form-type="submit" type="primary" hover-class="primary-button-hover"> 下一步</button>
+				</view>
+			</form>
+			<form bindsubmit="submitNewMobile" wx:elif="{{ changeMobileStep ===2 }}">
+				<view class="form">
+					<view class="form-row">
+						<view class="form-cell">
+							<input placeholder="图形验证码" maxlength="11" bindinput="inputCaptcha"></input>
+						</view>
+						<view class="form-cell">
+							<image mode="widthFix" src="data:image/jpg;base64,{{ captchaImg }}" bindtap="changeCaptcha"></image>
+						</view>
+
+					</view>
+					<view class="form-row">
+						<view class="form-cell">
+							<input placeholder="短信验证码" name="verifyCode"></input>
+						</view>
+						<view class="form-cell">
+							<button hover-class="primary-button-hover" catchtap="getVerifyCode" disabled="{{ isGetVerifyCode}}">{{isGetVerifyCode? timer + 's':'获取短信验证码'}}</button>
+						</view>
+					</view>
+					<view class="form-row">
+						<view class="form-cell">
+							<input placeholder="新手机号" name="newMobile" type="number"></input>
+						</view>
+					</view>
+				</view>
+				<view class="form-buttons">
+					<button size="mini" type="primary" bindtap="previousStep" hover-class="primary-button-hover"> 上一步</button>
+					<button size="mini" form-type="submit" type="primary" hover-class="primary-button-hover"> 提交</button>
+				</view>
+			</form>
+		</view>
+		<view class="model-footer">
+			<view size="mini" class="model-button-cancel" bindtap="hideModel">取消</view>
+		</view>
+	</view>
+
+
+</view>

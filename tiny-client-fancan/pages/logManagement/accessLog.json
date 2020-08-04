@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Router": "/components/Router/Router",
+    "Pagination":"/components/Pagination/Pagination"
+  },
+  "navigationBarTitleText": "访问日志"
+}

@@ -1,0 +1,38 @@
+<!--components/Router/Router.wxml-->
+<view class="top-bar">
+	<view class="sider-button">
+		<text wx:if="{{menuStatus}}" class="iconfont iconmenu-off" bindtap="hiddenMenu"></text>
+		<text wx:else class="iconfont iconmenu-on" bindtap="showMenu"></text>
+	</view>
+	<view class="sider-user">
+		<view class="user-image-box">
+			<image class="user-image" src="{{userAvatar}}"></image>
+		</view>
+	</view>
+</view>
+
+<view class="mask" hidden="{{!menuStatus}}" catchtap="hiddenMenu">
+	<view class="drawer" catchtap="stopBubble" animation="{{drawer}}">
+		<view class="head">
+			<text >iHappy</text>
+		</view>
+		<view class="menu-list">
+			<scroll-view scroll-y="true" class="scroll">
+				<block wx:for="{{menus}}" wx:key="id">
+					<view class="menu-level-1 {{item.id==currentMenu.id? 'current-menu' : ''}}" data-id="{{item.id}}" catchtap="switchMenu">
+						<text>{{item.name}}</text>
+						<block wx:if="{{ item.children.length !==0 }}">
+						<text wx:if="{{ item.id !== switchId }}" class="iconfont icondown-arrow"></text>
+							<text  wx:else class="iconfont iconup-arrow"></text>
+						</block>
+					</view>
+					<block wx:for="{{item.children}}" wx:key="id" wx:for-item="level2" wx:if="{{ item.id === switchId }}" >
+						<view class="menu-level-2 {{level2.id==currentMenu.id? 'current-menu' : ''}}" data-id="{{level2.id}}" catchtap="routePage">
+							<text>{{level2.name}}</text>
+						</view>
+					</block>
+				</block>
+			</scroll-view>
+		</view>
+	</view>
+</view>

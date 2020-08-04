@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "globalfooter": "../../components/globalfooter/globalfooter"
+  },
+  "navigationBarTitleText": "量表测试"
+}

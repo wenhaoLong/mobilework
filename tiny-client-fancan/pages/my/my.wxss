@@ -1,0 +1,53 @@
+/* pages/my/my.wxss */
+.cover {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.userinfo {
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  overflow: hidden;
+  border-radius: 75rpx;
+  margin: 20rpx;
+} 
+.userinfo-nickname {
+  font-size: large;
+
+}
+.list-item {
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.list-item-hover {
+  color: #1890ff;
+}
+.list-item view {
+  padding-bottom: 20rpx;
+  border-bottom: 3rpx solid #eee;
+  width: max-content;
+  display: flex;
+  /* flex-direction: ; */
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 2;
+}
+.list-item > text {
+  padding-bottom:20rpx;
+  padding-right: 20rpx;
+  font-size: xx-large;
+  color: #1890ff;
+}
+.model-body{
+  padding-bottom: 20rpx;
+}

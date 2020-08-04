@@ -1,0 +1,38 @@
+/* pages/register/register.wxss */
+@import "../../resources/weui.wxss";
+
+
+
+.page__hd {
+  font-size: large;
+  text-align: center;
+  padding: 30rpx;
+}
+
+
+.weui-btn{
+  width: 62%;
+  background-color: #1890ff;
+  color: white;
+}
+.weui-vcode-btn{
+  color: #1890ff;
+  border-color: 1rpx solid #1890ff;
+  border-color: #1890ff;
+}
+
+
+navigator {
+  text-align: center;
+  margin-top: 20rpx;
+  color: #1890ff;
+}
+input[disabled]{
+  background-color: #eee;
+}
+
+
+
+
+
+

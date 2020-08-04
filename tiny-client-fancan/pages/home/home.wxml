@@ -1,0 +1,13 @@
+<view class="cover">
+	<text class="title">介绍</text>
+	<view class="content">
+		<view wx:for="{{content}}" wx:key="item" class="content-list">
+			{{item}}
+		</view>
+	</view>
+
+  <view class="footer">
+  <button class="" type="primary" hover-class="primary-button-hover" catchtap="goToTest">选择测评量表</button>
+  </view>
+	<globalfooter ></globalfooter>
+</view>

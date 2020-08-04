@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/logManagement/accessLog",
+    "pages/signin/signin",
+    "pages/scale/scale",
+    "pages/forget/forget",
+    "pages/report/report",
+    "pages/history/history",
+    "pages/my/my",
+    "pages/setting/setting",
+    "pages/scalelist/scalelist",
+    "pages/register/register",
+    "pages/web/web"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "iHappy",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#1890ff"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "selectedColor": "#1890ff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "resources/icon/home.png",
+        "selectedIconPath": "resources/icon/home-selected.png"
+      },
+      {
+        "pagePath": "pages/scalelist/scalelist",
+        "text": "测试",
+        "iconPath": "resources/icon/heartbeat.png",
+        "selectedIconPath": "resources/icon/heartbeat-selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "resources/icon/my.png",
+        "selectedIconPath": "resources/icon/my-selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.4",
+      "provider": "wx069ba97219f66d99"
+    }
+  }
+}

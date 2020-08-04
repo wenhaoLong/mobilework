@@ -1,0 +1,64 @@
+<!--pages/logManagement/accessLog.wxml-->
+<Router menus="{{menuList}}" />
+
+<form bindsubmit="formSubmit" class="form-box" bindreset="formReset">
+	<view class="form-item">
+		<view class="form-item-title">
+			<text>选择日期</text>
+		</view>
+		<view class="flex-row">
+			<picker mode="date" bindchange="startPicker" value="{{searchParams.startDate}}">
+				<!-- <view class="date-picker ">{{searchParams?searchParams.startDate:'开始日期'}}</view> -->
+				<view class="date-picker ">{{searchParams.startDate}}</view>
+
+			</picker>
+      <view> ~ </view>
+			<picker mode="date" bindchange="endPicker" value="{{searchParams.endDate}}">
+				<!-- <view class="date-picker">{{searchParams?searchParams.endDate:'结束日期'}}</view> -->
+				<view class="date-picker">{{searchParams.endDate}}</view>
+
+			</picker>
+		</view>
+
+	</view>
+
+	<view class="flex-row form-buttons">
+		<button type="primary" hover-class="primary-button-hover" size="mini" form-type="submit">查询</button>
+		<button size="mini" form-type="reset">重置</button>
+	</view>
+
+</form>
+
+<scroll-view scroll-x="true" class="scroll-box">
+	<view class="table">
+		<view class="table-thead">
+			<view class="table-row table-row-odd">
+				<view class="table-cell" wx:for="{{columns}}" wx:key="key">
+					<view class="cell-item">
+						{{item.title}}
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="table-tbody">
+			<view class="table-row {{index%2 === 0? 'table-row-even' : 'table-row-odd'}}" wx:for="{{dataSource}}" wx:key="item" wx:for-item="listItem">
+				<block wx:for="{{columns}}" wx:key="key" wx:for-item="columnsItem">
+					<view class="table-cell">
+						<block wx:if="{{columnsItem.key == 'action'}}">
+							<view class="cell-item action-cell">
+								{{listItem[columnsItem.key] || ""}}
+							</view>
+						</block>
+						<block wx:else>
+							<view class="cell-item" style="width:{{columnsItem.width || 'unset'}};text-overflow:{{columnsItem.ellipsis? 'ellipsis' : 'unset'}}">
+								{{listItem[columnsItem.key] || ""}}
+							</view>
+						</block>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+
+<Pagination current="{{currentPage}}" total="{{pagination}}" pageSize="{{pageSize}}" bind:onChange="pageChange" />

@@ -1,0 +1,40 @@
+/**app.wxss**/
+@import "/resources/iconfont.wxss";
+@import "/resources/fcui.wxss";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.cover{
+  position: relative;
+  height: 100vh;
+  overflow: auto;
+}
+Tabbar {
+  position: fixed;
+  left:0;
+  bottom:0;
+  right: 0;
+}
+
+/* 蓝色标准色号 #1890ff */
+image{
+  width: 100%;
+  height: 100%;
+}
+
+button[type=primary]{
+  background-color: #1890ff;
+}
+
+.primary-button-hover{
+  background-color: #3498db !important;
+  color: #f2f1ef !important;
+}
+

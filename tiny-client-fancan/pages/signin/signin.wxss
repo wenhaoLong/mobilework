@@ -1,0 +1,54 @@
+/* pages/signin/signin.wxss */
+page {
+  background-color: #f1f2f6;
+}
+.form-signin {
+  text-align: center;
+}
+.form-signin-heading {
+  display: inline-block;
+  padding: 18rpx 30rpx;
+  color: #000;
+  font-size: large;
+  /* border-bottom: 4rpx solid #000; */
+}
+
+.signin-way {
+  color: #1890ff;
+  border-bottom: 4rpx solid #1890ff;
+
+}
+
+.form-signin input{
+  text-align: left;
+  margin-top: 30rpx;
+  padding: 18rpx;
+  background-color: white;
+  border: 2rpx solid #d9d9d9;
+  border-radius: 10rpx;
+  width: 410rpx;
+}
+.form-signin button {
+  margin-top: 30rpx;
+  color: white;
+  background-color: #1890ff;
+  width: 446rpx;
+}
+navigator {
+  margin-top: 30rpx;
+  color: #1890ff;
+}
+.bottom-part{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cue{
+  display: block;
+  width: 70%;
+
+  margin-top: 40rpx;
+  font-size: small;
+}
+
+

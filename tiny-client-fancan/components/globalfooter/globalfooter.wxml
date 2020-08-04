@@ -1,0 +1,6 @@
+<view class="global-footer">
+	<view class="global-footer-content">
+		<view>Copyright © 2019</view>
+		<view class="global-footer-navigator" catchtap="goToWebView">成都中科云集信息技术有限公司</view>
+	</view>
+</view>

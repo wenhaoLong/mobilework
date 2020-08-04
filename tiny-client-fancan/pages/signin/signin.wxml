@@ -1,0 +1,18 @@
+<!--pages/signin/signin.wxml  这是登录页面-->
+
+<view class="container">
+	<form class="form-signin" bindsubmit="submitSignIn">
+		<text class="form-signin-heading {{role === 0? 'signin-way' : ''}}" bindtap="userSignIn">用户登录</text>
+		<!-- <text class="form-signin-heading {{role === 1? 'signin-way' : ''}}" bindtap="adminSignIn">管理员登录</text> -->
+		<!-- <input type="number" placeholder="请输入手机号" name="mobile"></input> -->
+		<input type="number" placeholder="请输入手机号" name="mobile"></input>
+		<input type="password" placeholder="请输入密码" name="password"></input>
+		<button form-type="submit">登录</button>
+		<view class="bottom-part" wx:if="{{role === 0}}">
+			<navigator url="../register/register" hover-class="none" hover-stay-time="0">注册账户</navigator>
+			<navigator url="../forget/forget" hover-class="none">忘记密码</navigator>
+		</view>
+	</form>
+	<!-- <text class="cue">通过登录，我们才能保存您的测试信息，正常使用量表测试功能。</text> -->
+	<globalfooter></globalfooter>
+</view>
