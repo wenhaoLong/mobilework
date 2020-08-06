@@ -29,7 +29,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.0",
-	"appid": "wx2fea1c12cb399693",
+	"appid": "wx382ce09d8708a665",
 	"projectname": "iHappy",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -121,6 +121,20 @@
 					"id": -1,
 					"name": "忘记密码forget",
 					"pathName": "pages/forget/forget",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/scale/scale",
+					"pathName": "pages/scale/scale",
 					"scene": null
 				}
 			]

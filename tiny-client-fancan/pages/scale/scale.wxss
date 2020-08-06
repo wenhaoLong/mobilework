@@ -196,3 +196,13 @@ button[type=primary] {
   background: transparent;
   transform: translate(-50%, -50%);
 }
+
+.record_button .tip {
+  width: 500rpx;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  z-index: 10;
+  background: transparent;
+  transform: translate(-50%, -50%);
+}

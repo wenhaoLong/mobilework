@@ -27,7 +27,7 @@ Page({
     voiceResult: null, // 语音解析的结果
     isRecording: false, // 正在录音 用于显示录音动画
 
-
+    restTime: 5,
     hasRecord: false,
     isDot: "block",
     isTouchStart: false,
@@ -79,7 +79,6 @@ Page({
   onShow: function () {
    
     innerAudioContext.volume = 1;
-    innerAudioContext.seek(0.04);
     let {
       isStart
     } = this.data;
@@ -170,9 +169,7 @@ Page({
     })
     innerAudioContext.onEnded(() => {
       console.log('readStop!');
-
       //this.beginRecord();
-      
     })
    
     plugin.textToSpeech({
@@ -198,44 +195,64 @@ Page({
    * 长按录音开始
    */
   recordStart: function(e) {
+   
     this.beginRecord();
+    innerAudioContext.pause();
     var n = this;
     n.setData({
       touchStart: e.timeStamp,
       isTouchStart: true,
       isTouchEnd: false,
       showPg: true,
+      
     })
 
-    var a = 4, o = 10;
-    this.timer = setInterval(function () {
-      n.setData({
-        value: n.data.value - 100 / 400
-      }), (o += 10) >= 1e3 && o % 1e3 == 0 && (a-- , 
-      console.log(a), 
+    // var a = 5;
+   
+    // this.timer = setInterval(function () {
+    //   n.setData({
+    //     value: n.data.value - 10000 / 500,
+    //     restTime: n.data.restTime - 1
+    //   })
+    //   a -= 1
+    //   if (a<=0) {
+      
+        
+    //     //manager.stop()
+    //     clearInterval(n.timer)
+    //     n.setData({
+    //       showPg: false,
+    //     })
+    //   }
+    // }, 1000);
 
-      a <= 0 && (
-        manager.stop(),
-        clearInterval(n.timer), 
-        n.setData({
-          showPg: false,
-        })));
-    }, 10);
   },
+
+
+
   /**
    * 长按录音结束
    */
   recordTerm: function(e) {
-    this.endRecord();
+
+    setTimeout(() => {
+      manager.stop();
+      // this.setData({
+      //   restTime: 5
+      // })
+    }, 500)
+    //manager.stop();
     this.setData({
       isTouchEnd: true,
       isTouchStart: false,
       touchEnd: e.timeStamp,
       showPg: false,
-      value: 100
-    }), 
-    clearInterval(this.timer);
+      value: 100,
+      
+    })
+    //clearInterval(this.timer);
   },
+
 
 
   // 录音

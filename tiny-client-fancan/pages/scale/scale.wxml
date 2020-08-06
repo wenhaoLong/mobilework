@@ -24,10 +24,11 @@
 				<view class="dot {{isTouchStart==true?'dot-blowup':''}} {{isTouchEnd==true?'dot-zoomout':''}}" style="display:{{isDot}}"></view>
 				<view class="record" bindtouchstart="recordStart" bindtouchend="recordTerm">
 					<image mode="widthFix" src="../../resources/image/record.png"></image>
+					
 				</view>
-			
+				<view class="tip">请按住绿色按钮开始录音</view>
 			</view>
-			<progress strokeWidth="4" percent="{{value}}" wx:if="{{showPg}}" ></progress>
+			<!-- <progress strokeWidth="4" percent="{{value}}" wx:if="{{showPg}}" ></progress> -->
 			<!-- <button bindtap="readTitle" type="primary">朗读题目</button> -->
 		</view>
 	</form>
@@ -51,7 +52,7 @@
 		</view>
 	</view>
 	<view class="model-footer recording-footer">
-		<text>录音持续5秒</text>
+		<text>请松开绿色按钮结束录音</text>
 	</view>
 
 </view>
