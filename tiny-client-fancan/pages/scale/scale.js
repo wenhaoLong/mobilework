@@ -469,8 +469,11 @@ Page({
             method: 'POST'
           }).then((res) => {
             wx.redirectTo({
-              url: '/pages/history/history',
+              url: '/pages/openQA/openQA',
             })
+            // wx.redirectTo({
+            //   url: '/pages/history/history',
+            // })
           })
         }
       })

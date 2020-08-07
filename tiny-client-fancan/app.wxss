@@ -2,6 +2,7 @@
 @import "/resources/iconfont.wxss";
 @import "/resources/fcui.wxss";
 
+
 .container {
   height: 100%;
   display: flex;

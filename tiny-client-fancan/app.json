@@ -11,6 +11,7 @@
     "pages/setting/setting",
     "pages/scalelist/scalelist",
     "pages/register/register",
+    "pages/openQA/openQA",
     "pages/web/web"
   ],
   "window": {

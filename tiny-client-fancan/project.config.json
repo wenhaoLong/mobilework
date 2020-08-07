@@ -135,6 +135,13 @@
 					"id": -1,
 					"name": "pages/scale/scale",
 					"pathName": "pages/scale/scale",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/openQA/openQA",
+					"pathName": "pages/openQA/openQA",
 					"scene": null
 				}
 			]
