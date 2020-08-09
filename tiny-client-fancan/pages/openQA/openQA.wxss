@@ -7,6 +7,7 @@
   height: 30vh;
 }
 
+
 .UCenter-bg {
   background-image: url(https://image.weilanwl.com/color2.0/index.jpg);
   background-size: cover;
@@ -54,14 +55,18 @@ map,.mapBox{
   height: 300rpx;
 }
 
+.bg-white{
+  position: fixed;
+  bottom: 0;
+}
 
 /* 录音按钮 */
 /* pages/touchSpeak/touchSpeak.wxss */
-.record_button ,page{
+.record_button {
   width: 100%;
-  height: 400rpx;
+  height: 320rpx;
   position: relative;
-  
+  margin-top: 180rpx;
 }
 .record_button{
   background-color: #f7f7f7;
@@ -136,7 +141,7 @@ map,.mapBox{
   width: 500rpx;
   position: absolute;
   top: 90%;
-  left: 50%;
+  left: 62%;
   z-index: 10;
   background: transparent;
   transform: translate(-50%, -50%);

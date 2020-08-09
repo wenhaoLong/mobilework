@@ -1,13 +1,13 @@
 <!--pages/openQA/openQA.wxml-->
-<scroll-view scroll-y class="scrollPage">
+<view class="scrollPage">
   <view class="UCenter-bg">
     <camera
       class="camera"
       frame-size="large"
     ></camera>
     <!-- <image src="/images/logo.png" class="png" mode="widthFix"></image> -->
-    <view class="text-xl">ColorUI组件库
-      <text class="text-df">v2.0</text>
+    <view class="text-xl">
+      <!-- <text class="text-df">v2.0</text> -->
     </view>
     <image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
@@ -18,14 +18,14 @@
         <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big143004.jpg);"></view>
         <view class="main">
           <view class="content shadow">
-            <text>喵喵喵！喵喵喵！</text>
+            <text>你觉得今天天气如何？</text>
           </view>
         </view>
       </view>
     <view class="cu-item self">
       <view class="main">
         <view class="content bg-green shadow">
-          <text>喵喵喵！喵喵喵！喵喵喵！喵喵！喵喵！！喵！喵喵喵！</text>
+          <text>天气不错</text>
         </view>
       </view>
       <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big107000.jpg);"></view>
@@ -43,10 +43,10 @@
     </view>
   </view>
   <!-- 换题栏 -->
-  <scroll-view scroll-x class="bg-white nav margin-bottom" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
     <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{10}}" wx:key bindtap="tabSelect" data-id="{{index}}">
-      Tab{{index}}
+      问题{{index+1}}
     </view>
   </scroll-view>
 
-</scroll-view>
+</view>
