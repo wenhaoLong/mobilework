@@ -8,6 +8,7 @@
 
 
  const wxRequest = (params) => {
+   console.log(params);
    let header = params.header || {};
    header["X-Access-Token"] = app.globalData["X-Access-Token"];
    return new Promise((resolve, reject) => {
@@ -32,10 +33,12 @@
              icon: 'none'
            })
          } else {
+          resolve(res);
            wx.showToast({
              title: JSON.stringify(res.data),
              icon: 'none'
            })
+
          }
        },
        fail: (err) => {

@@ -60,6 +60,59 @@ map,.mapBox{
   bottom: 0;
 }
 
+
+.recording-box{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  position: fixed;
+  width: 400rpx;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+
+}
+.recording-footer{
+  justify-content: center;
+}
+
+
+.recording{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rocording-twig{
+  width: 6px;
+  height: 40px;
+  background: white;
+  margin: 0 3px;
+  border-radius: 10px;
+  animation: loading 0.8s infinite;
+}
+.rocording-twig:nth-child(2){
+  animation-delay: 0.1s;
+}
+.rocording-twig:nth-child(3){
+  animation-delay: 0.2s;
+}
+.rocording-twig:nth-child(4){
+  animation-delay: 0.3s;
+}
+.rocording-twig:nth-child(5){
+  animation-delay: 0.4s;
+}
+.rocording-twig:nth-child(6){
+  animation-delay: 0.5s;
+}
+.rocording-twig:nth-child(7){
+  animation-delay: 0.6s;
+}
+.rocording-twig:nth-child(8){
+  animation-delay: 0.7s;
+}
+
+
 /* 录音按钮 */
 /* pages/touchSpeak/touchSpeak.wxss */
 .record_button {

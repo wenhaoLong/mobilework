@@ -1,52 +1,92 @@
 <!--pages/openQA/openQA.wxml-->
 <view class="scrollPage">
   <view class="UCenter-bg">
-    <camera
-      class="camera"
-      frame-size="large"
-    ></camera>
+    <view wx:if="{{camera}}">
+      <camera
+        class="camera"
+        frame-size="large"
+      ></camera>
+    </view>
     <!-- <image src="/images/logo.png" class="png" mode="widthFix"></image> -->
     <view class="text-xl">
       <!-- <text class="text-df">v2.0</text> -->
     </view>
     <image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
-  
-  <!-- 问答栏 -->
-  <view class="cu-chat">
-    <view class="cu-item margin-left">
-        <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big143004.jpg);"></view>
-        <view class="main">
-          <view class="content shadow">
-            <text>你觉得今天天气如何？</text>
+  <block wx:if="{{!tip}}">
+    <!-- 问答栏 -->
+    <view class="cu-chat">
+      <view class="cu-item margin-left">
+          <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big143004.jpg);"></view>
+          <view class="main">
+            <view class="content shadow">
+              <text>{{title}}</text>
+            </view>
           </view>
         </view>
-      </view>
-    <view class="cu-item self">
-      <view class="main">
-        <view class="content bg-green shadow">
-          <text>天气不错</text>
+      <view class="cu-item self" wx:if="{{voiceResult}}">
+        <view class="main">
+          <view class="content bg-green shadow">
+            <text>{{voiceResult}}</text>
+          </view>
         </view>
-      </view>
-      <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big107000.jpg);"></view>
-      
-    </view>
-    <!-- 录音按钮 -->
-    <view class="record_button">
-    
-      <view class="dot {{isTouchStart==true?'dot-blowup':''}} {{isTouchEnd==true?'dot-zoomout':''}}" style="display:{{isDot}}"></view>
-      <view class="record" bindtouchstart="recordStart" bindtouchend="recordTerm">
-        <image mode="widthFix" src="../../resources/image/record.png"></image>
+        <view class="cu-avatar radius" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big107000.jpg);"></view>
         
       </view>
-      <view class="tip">请按住绿色按钮开始录音</view>
+      <!-- 录音按钮 -->
+      <view class="record_button">
+      
+        <view class="dot {{isTouchStart==true?'dot-blowup':''}} {{isTouchEnd==true?'dot-zoomout':''}}" style="display:{{isDot}}"></view>
+        <view class="record" bindtouchstart="recordStart" bindtouchend="recordTerm">
+          <image mode="widthFix" src="../../resources/image/record.png"></image>
+          
+        </view>
+        <view class="tip">请按住绿色按钮开始录音</view>
+      </view>
     </view>
-  </view>
-  <!-- 换题栏 -->
-  <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{10}}" wx:key bindtap="tabSelect" data-id="{{index}}">
-      问题{{index+1}}
+    <!-- 换题栏 -->
+    <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+      <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{10}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+        问题{{index+1}}
+      </view>
+    </scroll-view>
+  </block>
+  <block wx:else>
+    <view class="solid-bottom text-xl padding"><text class="text-black text-bold">在与您交流过程中，系统将对您说的话、您的面部表情等进行人工智能动态分析，得出您的心理健康水平。</text></view>
+    <view>
+      <view class="flex solid-bottom padding justify-start">
+        <text class="padding-sm">打开摄像头</text>
+        <switch class="padding-sm" bindchange="handleCamera"></switch>
+      </view>
+      <view class="flex justify-center">
+        <text class="">打开摄像头后，系统才能对您的面部表情进行分析</text>
+        
+      </view>
+      <view class="flex justify-center padding">
+        <button class="cu-btn round bg-orange" bindtap="startQA">开始测评</button>
+      </view>
     </view>
-  </scroll-view>
+
+  </block>
+</view>
+<view class="model-box recording-box" hidden="{{ !isRecording}}">
+	<view class="model-header recording-header">
+		<text>正在录音中...</text>
+	</view>
+	<view class="model-body recording-body">
+		<view class="recording">
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+			<view class="rocording-twig"></view>
+		</view>
+	</view>
+	<view class="model-footer recording-footer">
+		<text>请松开绿色按钮结束录音</text>
+	</view>
 
 </view>
